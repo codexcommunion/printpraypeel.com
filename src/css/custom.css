@@ -9,26 +9,26 @@
 
 /* Default colors - will be overridden by liturgical theme */
 :root {
-  --ifm-color-primary: #16a34a;
-  --ifm-color-primary-dark: #15803d;
-  --ifm-color-primary-darker: #15803d;
-  --ifm-color-primary-darkest: #15803d;
-  --ifm-color-primary-light: #22c55e;
-  --ifm-color-primary-lighter: #22c55e;
-  --ifm-color-primary-lightest: #22c55e;
+  --ifm-color-primary: var(--color-liturgical-green-500);
+  --ifm-color-primary-dark: var(--color-liturgical-green-600);
+  --ifm-color-primary-darker: var(--color-liturgical-green-700);
+  --ifm-color-primary-darkest: var(--color-liturgical-green-800);
+  --ifm-color-primary-light: var(--color-liturgical-green-400);
+  --ifm-color-primary-lighter: var(--color-liturgical-green-300);
+  --ifm-color-primary-lightest: var(--color-liturgical-green-200);
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #22c55e;
-  --ifm-color-primary-dark: #16a34a;
-  --ifm-color-primary-darker: #15803d;
-  --ifm-color-primary-darkest: #15803d;
-  --ifm-color-primary-light: #22c55e;
-  --ifm-color-primary-lighter: #22c55e;
-  --ifm-color-primary-lightest: #22c55e;
+  --ifm-color-primary: var(--color-liturgical-green-400);
+  --ifm-color-primary-dark: var(--color-liturgical-green-500);
+  --ifm-color-primary-darker: var(--color-liturgical-green-600);
+  --ifm-color-primary-darkest: var(--color-liturgical-green-700);
+  --ifm-color-primary-light: var(--color-liturgical-green-300);
+  --ifm-color-primary-lighter: var(--color-liturgical-green-200);
+  --ifm-color-primary-lightest: var(--color-liturgical-green-100);
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
@@ -46,21 +46,34 @@
 
 /* Liturgical season indicators */
 .liturgical-season-ordinary {
-  border-left: 4px solid var(--ifm-color-primary);
+  border-left: 4px solid var(--color-liturgical-green-500);
 }
 
 .liturgical-season-advent {
-  border-left: 4px solid #7c3aed;
+  border-left: 4px solid var(--color-liturgical-purple-500);
 }
 
 .liturgical-season-christmas {
-  border-left: 4px solid #ffffff;
+  border-left: 4px solid var(--color-liturgical-white);
 }
 
 .liturgical-season-lent {
-  border-left: 4px solid #7c3aed;
+  border-left: 4px solid var(--color-liturgical-purple-500);
 }
 
 .liturgical-season-easter {
-  border-left: 4px solid #ffffff;
+  border-left: 4px solid var(--color-liturgical-white);
+}
+
+.liturgical-season-pentecost {
+  border-left: 4px solid var(--color-liturgical-red-500);
+}
+
+.liturgical-season-gaudete,
+.liturgical-season-laetare {
+  border-left: 4px solid var(--color-liturgical-rose-500);
+}
+
+.liturgical-season-feast {
+  border-left: 4px solid var(--color-liturgical-gold-500);
 }

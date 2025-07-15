@@ -50,46 +50,70 @@ export function getCurrentLiturgicalInfo(): LiturgicalInfo {
   }
 }
 
-export function getLiturgicalColorScheme(liturgicalColor: string): { primary: string; primaryDark: string; primaryLight: string } {
+export function getLiturgicalColorScheme(liturgicalColor: string): { primary: string; primaryDark: string; primaryDarker: string; primaryDarkest: string; primaryLight: string; primaryLighter: string; primaryLightest: string } {
   switch (liturgicalColor.toLowerCase()) {
     case 'red':
       return {
-        primary: '#dc2626', // red-600
-        primaryDark: '#b91c1c', // red-700
-        primaryLight: '#ef4444' // red-500
+        primary: 'var(--color-liturgical-red-500)',
+        primaryDark: 'var(--color-liturgical-red-600)',
+        primaryDarker: 'var(--color-liturgical-red-700)',
+        primaryDarkest: 'var(--color-liturgical-red-800)',
+        primaryLight: 'var(--color-liturgical-red-400)',
+        primaryLighter: 'var(--color-liturgical-red-300)',
+        primaryLightest: 'var(--color-liturgical-red-200)'
       };
     case 'purple':
     case 'violet':
       return {
-        primary: '#7c3aed', // violet-600
-        primaryDark: '#6d28d9', // violet-700
-        primaryLight: '#8b5cf6' // violet-500
+        primary: 'var(--color-liturgical-purple-500)',
+        primaryDark: 'var(--color-liturgical-purple-600)',
+        primaryDarker: 'var(--color-liturgical-purple-700)',
+        primaryDarkest: 'var(--color-liturgical-purple-800)',
+        primaryLight: 'var(--color-liturgical-purple-400)',
+        primaryLighter: 'var(--color-liturgical-purple-300)',
+        primaryLightest: 'var(--color-liturgical-purple-200)'
       };
     case 'white':
       return {
-        primary: '#374151', // gray-700 (readable on white)
-        primaryDark: '#1f2937', // gray-800
-        primaryLight: '#4b5563' // gray-600
+        primary: 'var(--color-liturgical-white)',
+        primaryDark: 'var(--color-liturgical-white)',
+        primaryDarker: 'var(--color-liturgical-white)',
+        primaryDarkest: 'var(--color-liturgical-white)',
+        primaryLight: 'var(--color-liturgical-white)',
+        primaryLighter: 'var(--color-liturgical-white)',
+        primaryLightest: 'var(--color-liturgical-white)'
       };
     case 'gold':
       return {
-        primary: '#d97706', // amber-600
-        primaryDark: '#b45309', // amber-700
-        primaryLight: '#f59e0b' // amber-500
+        primary: 'var(--color-liturgical-gold-500)',
+        primaryDark: 'var(--color-liturgical-gold-600)',
+        primaryDarker: 'var(--color-liturgical-gold-700)',
+        primaryDarkest: 'var(--color-liturgical-gold-800)',
+        primaryLight: 'var(--color-liturgical-gold-400)',
+        primaryLighter: 'var(--color-liturgical-gold-300)',
+        primaryLightest: 'var(--color-liturgical-gold-200)'
       };
     case 'rose':
     case 'pink':
       return {
-        primary: '#e11d48', // rose-600
-        primaryDark: '#be185d', // rose-700
-        primaryLight: '#f43f5e' // rose-500
+        primary: 'var(--color-liturgical-rose-500)',
+        primaryDark: 'var(--color-liturgical-rose-600)',
+        primaryDarker: 'var(--color-liturgical-rose-700)',
+        primaryDarkest: 'var(--color-liturgical-rose-800)',
+        primaryLight: 'var(--color-liturgical-rose-400)',
+        primaryLighter: 'var(--color-liturgical-rose-300)',
+        primaryLightest: 'var(--color-liturgical-rose-200)'
       };
     case 'green':
     default:
       return {
-        primary: '#16a34a', // green-600
-        primaryDark: '#15803d', // green-700
-        primaryLight: '#22c55e' // green-500
+        primary: 'var(--color-liturgical-green-500)',
+        primaryDark: 'var(--color-liturgical-green-600)',
+        primaryDarker: 'var(--color-liturgical-green-700)',
+        primaryDarkest: 'var(--color-liturgical-green-800)',
+        primaryLight: 'var(--color-liturgical-green-400)',
+        primaryLighter: 'var(--color-liturgical-green-300)',
+        primaryLightest: 'var(--color-liturgical-green-200)'
       };
   }
 }
@@ -101,11 +125,11 @@ export function generateLiturgicalCSS(liturgicalInfo: LiturgicalInfo): string {
     :root {
       --ifm-color-primary: ${colorScheme.primary};
       --ifm-color-primary-dark: ${colorScheme.primaryDark};
-      --ifm-color-primary-darker: ${colorScheme.primaryDark};
-      --ifm-color-primary-darkest: ${colorScheme.primaryDark};
+      --ifm-color-primary-darker: ${colorScheme.primaryDarker};
+      --ifm-color-primary-darkest: ${colorScheme.primaryDarkest};
       --ifm-color-primary-light: ${colorScheme.primaryLight};
-      --ifm-color-primary-lighter: ${colorScheme.primaryLight};
-      --ifm-color-primary-lightest: ${colorScheme.primaryLight};
+      --ifm-color-primary-lighter: ${colorScheme.primaryLighter};
+      --ifm-color-primary-lightest: ${colorScheme.primaryLightest};
       --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
     }
     
@@ -113,10 +137,10 @@ export function generateLiturgicalCSS(liturgicalInfo: LiturgicalInfo): string {
       --ifm-color-primary: ${colorScheme.primaryLight};
       --ifm-color-primary-dark: ${colorScheme.primary};
       --ifm-color-primary-darker: ${colorScheme.primaryDark};
-      --ifm-color-primary-darkest: ${colorScheme.primaryDark};
-      --ifm-color-primary-light: ${colorScheme.primaryLight};
-      --ifm-color-primary-lighter: ${colorScheme.primaryLight};
-      --ifm-color-primary-lightest: ${colorScheme.primaryLight};
+      --ifm-color-primary-darkest: ${colorScheme.primaryDarker};
+      --ifm-color-primary-light: ${colorScheme.primaryLighter};
+      --ifm-color-primary-lighter: ${colorScheme.primaryLightest};
+      --ifm-color-primary-lightest: ${colorScheme.primaryLightest};
       --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
     }
   `;
