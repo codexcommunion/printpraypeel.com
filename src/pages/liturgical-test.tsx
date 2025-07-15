@@ -41,28 +41,95 @@ export default function LiturgicalTest(): ReactNode {
               <Heading as="h2">Liturgical Color Meanings</Heading>
               <div className="row">
                 <div className="col col--6">
-                  <h3>🟢 Green - Ordinary Time</h3>
-                  <p>Represents growth, hope, and new life in Christ.</p>
+                  <div className="liturgical-season-ordinary card padding--md margin-bottom--md">
+                    <h3>🟢 Green - Ordinary Time</h3>
+                    <p>Represents growth, hope, and new life in Christ.</p>
+                    <div style={{ 
+                      backgroundColor: 'var(--color-liturgical-green-500)', 
+                      color: 'white', 
+                      padding: '0.5rem', 
+                      borderRadius: '4px',
+                      textAlign: 'center'
+                    }}>
+                      Sample Color
+                    </div>
+                  </div>
                 </div>
                 <div className="col col--6">
-                  <h3>🟣 Purple/Violet - Advent & Lent</h3>
-                  <p>Symbolizes penance, preparation, and sacrifice.</p>
+                  <div className="liturgical-season-advent card padding--md margin-bottom--md">
+                    <h3>🟣 Purple/Violet - Advent & Lent</h3>
+                    <p>Symbolizes penance, preparation, and sacrifice.</p>
+                    <div style={{ 
+                      backgroundColor: 'var(--color-liturgical-purple-500)', 
+                      color: 'white', 
+                      padding: '0.5rem', 
+                      borderRadius: '4px',
+                      textAlign: 'center'
+                    }}>
+                      Sample Color
+                    </div>
+                  </div>
                 </div>
                 <div className="col col--6">
-                  <h3>⚪ White - Christmas & Easter</h3>
-                  <p>Represents purity, joy, and the light of Christ.</p>
+                  <div className="liturgical-season-christmas card padding--md margin-bottom--md">
+                    <h3>⚪ White - Christmas & Easter</h3>
+                    <p>Represents purity, joy, and the light of Christ.</p>
+                    <div style={{ 
+                      backgroundColor: 'var(--color-liturgical-white)', 
+                      color: 'black', 
+                      padding: '0.5rem', 
+                      borderRadius: '4px',
+                      textAlign: 'center',
+                      border: '1px solid var(--ifm-color-emphasis-300)'
+                    }}>
+                      Sample Color
+                    </div>
+                  </div>
                 </div>
                 <div className="col col--6">
-                  <h3>🔴 Red - Martyrs & Pentecost</h3>
-                  <p>Symbolizes the blood of martyrs and the fire of the Holy Spirit.</p>
+                  <div className="liturgical-season-pentecost card padding--md margin-bottom--md">
+                    <h3>🔴 Red - Martyrs & Pentecost</h3>
+                    <p>Symbolizes the blood of martyrs and the fire of the Holy Spirit.</p>
+                    <div style={{ 
+                      backgroundColor: 'var(--color-liturgical-red-500)', 
+                      color: 'white', 
+                      padding: '0.5rem', 
+                      borderRadius: '4px',
+                      textAlign: 'center'
+                    }}>
+                      Sample Color
+                    </div>
+                  </div>
                 </div>
                 <div className="col col--6">
-                  <h3>🟡 Gold - Special Feasts</h3>
-                  <p>Used for the most solemn celebrations and feasts.</p>
+                  <div className="liturgical-season-feast card padding--md margin-bottom--md">
+                    <h3>🟡 Gold - Special Feasts</h3>
+                    <p>Used for the most solemn celebrations and feasts.</p>
+                    <div style={{ 
+                      backgroundColor: 'var(--color-liturgical-gold-500)', 
+                      color: 'black', 
+                      padding: '0.5rem', 
+                      borderRadius: '4px',
+                      textAlign: 'center'
+                    }}>
+                      Sample Color
+                    </div>
+                  </div>
                 </div>
                 <div className="col col--6">
-                  <h3>🌸 Rose - Gaudete & Laetare</h3>
-                  <p>Used on the third Sunday of Advent and fourth Sunday of Lent.</p>
+                  <div className="liturgical-season-gaudete card padding--md margin-bottom--md">
+                    <h3>🌸 Rose - Gaudete & Laetare</h3>
+                    <p>Used on the third Sunday of Advent and fourth Sunday of Lent.</p>
+                    <div style={{ 
+                      backgroundColor: 'var(--color-liturgical-rose-500)', 
+                      color: 'black', 
+                      padding: '0.5rem', 
+                      borderRadius: '4px',
+                      textAlign: 'center'
+                    }}>
+                      Sample Color
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
