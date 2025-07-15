@@ -4,27 +4,63 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/* Import Catholic CSS for liturgical styling */
+@import '~catholic-css/dist/catholic-palette.css';
+
+/* Default colors - will be overridden by liturgical theme */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #16a34a;
+  --ifm-color-primary-dark: #15803d;
+  --ifm-color-primary-darker: #15803d;
+  --ifm-color-primary-darkest: #15803d;
+  --ifm-color-primary-light: #22c55e;
+  --ifm-color-primary-lighter: #22c55e;
+  --ifm-color-primary-lightest: #22c55e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #22c55e;
+  --ifm-color-primary-dark: #16a34a;
+  --ifm-color-primary-darker: #15803d;
+  --ifm-color-primary-darkest: #15803d;
+  --ifm-color-primary-light: #22c55e;
+  --ifm-color-primary-lighter: #22c55e;
+  --ifm-color-primary-lightest: #22c55e;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Liturgical theming styles */
+.liturgical-info {
+  font-family: var(--ifm-font-family-base);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+/* Catholic CSS integration */
+.catholic-seasonal {
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Liturgical season indicators */
+.liturgical-season-ordinary {
+  border-left: 4px solid var(--ifm-color-primary);
+}
+
+.liturgical-season-advent {
+  border-left: 4px solid #7c3aed;
+}
+
+.liturgical-season-christmas {
+  border-left: 4px solid #ffffff;
+}
+
+.liturgical-season-lent {
+  border-left: 4px solid #7c3aed;
+}
+
+.liturgical-season-easter {
+  border-left: 4px solid #ffffff;
 }
