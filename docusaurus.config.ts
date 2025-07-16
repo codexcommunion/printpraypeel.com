@@ -1,8 +1,12 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import {getDocusaurusTheme} from '@codexcommunion/liturgical-theme';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+
+// Get the liturgical theme for today's date
+const liturgicalTheme = getDocusaurusTheme();
 
 const config: Config = {
   title: 'PrintPrayPeel.com',
@@ -66,6 +70,8 @@ const config: Config = {
   ],
 
   themeConfig: {
+    // Apply liturgical theme colors
+    ...liturgicalTheme,
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
@@ -130,12 +136,8 @@ const config: Config = {
               to: '/about',
             },
             {
-              label: 'Share Your Story',
-              to: '/community',
-            },
-            {
-              label: 'Contact',
-              to: '/contact',
+              label: 'GitHub Issues',
+              href: 'https://github.com/codexcommunion/printpraypeel.com/issues',
             },
           ],
         },
