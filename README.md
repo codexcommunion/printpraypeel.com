@@ -29,7 +29,7 @@ This generates static content into the `build` directory and can be served using
 To deploy the site to GitHub Pages, simply run:
 
 ```bash
-GIT_USER=codexcommunion npm run deploy
+npm run deploy
 ```
 
 This command will:
@@ -42,9 +42,13 @@ This command will:
 - The `gh-pages` branch should exist (create it from `main` if it doesn't)
 - Your local git should be authenticated with GitHub
 
-### Alternative SSH Deployment
-If you prefer using SSH:
+### Alternative Deployment Options
+If you need to use a different GitHub user or SSH:
 
 ```bash
-USE_SSH=true npm run deploy
+# Use different GitHub user
+GIT_USER=your-username npm run deploy:raw
+
+# Use SSH
+USE_SSH=true npm run deploy:raw
 ```
