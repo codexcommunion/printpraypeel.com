@@ -3,6 +3,9 @@
  * and scoped locally.
  */
 
+
+
+/* Hero Banner Styles */
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
@@ -16,10 +19,32 @@
   }
 }
 
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 1rem 0 3rem 0;
+  color: var(--ifm-hero-text-color);
+  opacity: 0.9;
+}
+
 .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .heroSubtitle {
+    font-size: 1.1rem;
+    margin: 1rem 0 2rem 0;
+  }
 }

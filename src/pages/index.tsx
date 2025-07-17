@@ -1,33 +1,26 @@
-import type {ReactNode} from 'react';
+import type { ReactNode } from 'react';
 import clsx from 'clsx';
-import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import StickerDiscoveryBanner from '@site/src/components/StickerDiscoveryBanner';
 import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
 
 function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/how-it-works">
-            Get Started 🙏
-          </Link>
-          <Link
-            className="button button--primary button--lg"
-            to="/stickers">
-            Browse Stickers 📄
-          </Link>
+        <div className={styles.heroContent}>
+          <Heading as="h1" className="hero__title">
+            Print. Pray. Peel.
+          </Heading>
+          <p className={styles.heroSubtitle}>
+            A joyful spiritual practice that transforms simple sticker-making into meaningful prayer time
+          </p>
+
+
         </div>
       </div>
     </header>
@@ -35,11 +28,12 @@ function HomepageHeader() {
 }
 
 export default function Home(): ReactNode {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Welcome to ${siteConfig.title}`}
+      title={`${siteConfig.title}`}
       description="Print Catholic prayer stickers, pray while cutting them out, and share them with others to spread faith and joy.">
+      <StickerDiscoveryBanner />
       <HomepageHeader />
       <main>
         <HomepageFeatures />
