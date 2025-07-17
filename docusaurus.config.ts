@@ -11,7 +11,7 @@ const liturgicalTheme = getDocusaurusTheme();
 const config: Config = {
   title: 'PrintPrayPeel.com',
   tagline: 'Print, Pray, Peel - Share Faith Through Stickers',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.svg',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -77,10 +77,6 @@ const config: Config = {
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
       title: 'PrintPrayPeel.com',
-      logo: {
-        alt: 'PrintPrayPeel Logo',
-        src: 'img/logo.svg',
-      },
       items: [
         {
           to: '/stickers',

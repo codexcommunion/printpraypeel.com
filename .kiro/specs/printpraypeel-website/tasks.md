@@ -41,7 +41,19 @@
     - Create clear call-to-action for newcomers
     - _Requirements: 1.1, 1.2, 1.3, 1.5_
 
-  - [ ] 2.2 Implement three main feature sections on homepage
+  - [x] 2.2 Implement three main feature sections on homepage
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

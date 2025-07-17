@@ -9,3 +9,98 @@
   height: 200px;
   width: 200px;
 }
+
+.featureIcon {
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+  color: var(--ifm-color-primary);
+}
+
+/* Main Features Section Styles */
+.mainFeatures {
+  padding: 4rem 0;
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.sectionTitle {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2rem;
+}
+
+.mainFeaturesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mainFeatureSection {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: var(--ifm-color-white);
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mainFeatureSection:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mainFeatureIcon {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ifm-color-primary);
+}
+
+.mainFeatureContent {
+  flex: 1;
+}
+
+.mainFeatureTitle {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.mainFeatureDescription {
+  margin-bottom: 1.5rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* Alternate layout for even-numbered features */
+.mainFeatureSection:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .mainFeatures {
+    padding: 2rem 0;
+  }
+
+  .sectionTitle {
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+  }
+
+  .mainFeatureSection, 
+  .mainFeatureSection:nth-child(even) {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .mainFeatureIcon {
+    margin-bottom: 1rem;
+  }
+}

@@ -1,56 +1,69 @@
-import type {ReactNode} from 'react';
+import type { ReactNode } from 'react';
 import clsx from 'clsx';
+import Link from '@docusaurus/Link';
 import Heading from '@theme/Heading';
+import { IconScissors, IconPhotoSearch, IconPray } from '@tabler/icons-react';
 import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  Icon: React.FC<{ size: number; stroke: number; className: string }>;
   description: ReactNode;
+  linkTo: string;
+  linkText: string;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: '🖨️ Print',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Learn to Make Stickers',
+    Icon: IconScissors,
     description: (
       <>
-        Download beautiful Catholic prayer stickers in ready-to-print PDF format.
-        All designs are optimized for home printing on standard paper.
+        Discover how to create your own stickers with our step-by-step guide.
       </>
     ),
+    linkTo: '/how-to-make-your-own-stickers',
+    linkText: 'View Guide',
   },
   {
-    title: '🙏 Pray',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Explore Stickers',
+    Icon: IconPhotoSearch,
     description: (
       <>
-        Recite Catholic prayers while cutting out your stickers. Transform a simple
-        craft activity into a meaningful prayer experience.
+        Browse our collection of beautiful stickers.
+        Find designs for every occasion and spiritual need.
       </>
     ),
+    linkTo: '/stickers',
+    linkText: 'Browse Stickers',
   },
   {
-    title: '📤 Peel & Share',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Learn How to Pray',
+    Icon: IconPray,
     description: (
       <>
-        Share your finished stickers with friends and family. Each sticker includes
-        a link back to this site, spreading faith and community.
+        Check out our collection of prayers and learn how to pray, or elevate your prayer life to the next level.
       </>
     ),
+    linkTo: '/prayers',
+    linkText: 'Discover Prayer',
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({ title, Icon, description, linkTo, linkText }: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        <Icon size={64} stroke={1.5} className={styles.featureIcon} />
       </div>
       <div className="text--center padding-horiz--md">
         <Heading as="h3">{title}</Heading>
         <p>{description}</p>
+        <Link
+          className="button button--primary"
+          to={linkTo}>
+          {linkText}
+        </Link>
       </div>
     </div>
   );
