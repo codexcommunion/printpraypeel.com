@@ -19,10 +19,10 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://printpraypeel.com',
+  url: 'https://codexcommunion.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/printpraypeel.com/',
 
   // GitHub pages deployment config.
   organizationName: 'codexcommunion', // Usually your GitHub org/user name.
