@@ -41,19 +41,26 @@
     - Create clear call-to-action for newcomers
     - _Requirements: 1.1, 1.2, 1.3, 1.5_
 
-  - [ ] 2.2 Implement featured stickers grid on homepage
-    - Create responsive grid component for featured stickers
-    - Develop a system to query MDX files with "featured: true" frontmatter
-    - Use Docusaurus content plugin APIs to extract metadata from MDX files
-    - Display thumbnail previews and titles from MDX frontmatter
-    - Implement direct links to sticker detail pages
-    - _Requirements: 1.4, 2.1, 2.5, 6.1, 6.5_
+  - [ ] 2.2 Implement three main feature sections on homepage
 
-  - [ ] 2.3 Add "How It Works" preview section
-    - Create 3-step visual process explanation
-    - Add link to detailed guide
-    - Ensure mobile responsiveness
-    - _Requirements: 1.2, 1.3, 4.3_
+
+
+
+
+
+
+    - Create "Learn to Make a Sticker" section with link to instructional guide page
+    - Create "Check Out the Stickers" section with link to sticker library (TODO page)
+    - Create "Learn More About Prayer" section with link to prayer resources page
+    - Use some nice free svg resources/icons for each one
+    - _Requirements: 1.2, 1.3, 1.4, 2.1_
+
+  - [ ] 2.3 Create instructional "How to Make Stickers" page
+    - Write comprehensive guide for newcomers on sticker creation process
+    - Include best practices, material recommendations, and step-by-step instructions
+    - Add visual aids and examples for each step
+    - Cover different printing options and paper types
+    - _Requirements: 1.2, 4.3, 4.4_
 
 - [ ] 3. Sticker Library Implementation
   - [ ] 3.1 Create sticker library structure and documentation
