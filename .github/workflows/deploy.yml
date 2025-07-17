@@ -41,6 +41,6 @@ jobs:
 
       - name: Deploy to GitHub Pages
         env:
-          GIT_USER: ${{ github.actor }}
+          GIT_USER: codexcommunion
           GIT_PASS: ${{ secrets.GITHUB_TOKEN }}
         run: npm run deploy
