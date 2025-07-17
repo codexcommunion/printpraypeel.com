@@ -67,11 +67,13 @@
     - Use some nice free svg resources/icons for each one
     - _Requirements: 1.2, 1.3, 1.4, 2.1_
 
-  - [ ] 2.3 Create instructional "How to Make Stickers" page
-    - Write comprehensive guide for newcomers on sticker creation process
-    - Include best practices, material recommendations, and step-by-step instructions
-    - Add visual aids and examples for each step
-    - Cover different printing options and paper types
+  - [ ] 2.3 Create comprehensive instructional "How to Make Stickers" guide
+    - Convert basic page into a directory-based structure with multiple sections
+    - Add screenshots and images to illustrate each step of the process
+    - Include best practices, material recommendations, and detailed step-by-step instructions
+    - Create visual aids and examples for each step of the sticker-making process
+    - Cover different printing options, paper types, and cutting techniques
+    - Add troubleshooting section for common issues
     - _Requirements: 1.2, 4.3, 4.4_
 
 - [ ] 3. Sticker Library Implementation
