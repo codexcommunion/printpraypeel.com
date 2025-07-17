@@ -1,41 +1,50 @@
-# Website
+# PrintPrayPeel.com
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+A Catholic spiritual practice website that provides free printable prayer stickers. Built with [Docusaurus](https://docusaurus.io/).
 
 ## Installation
 
 ```bash
-yarn
+npm install
 ```
 
 ## Local Development
 
 ```bash
-yarn start
+npm start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+This starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
 ## Build
 
 ```bash
-yarn build
+npm run build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+This generates static content into the `build` directory and can be served using any static contents hosting service.
 
-## Deployment
+## Deployment to GitHub Pages
 
-Using SSH:
+To deploy the site to GitHub Pages, simply run:
 
 ```bash
-USE_SSH=true yarn deploy
+GIT_USER=codexcommunion npm run deploy
 ```
 
-Not using SSH:
+This command will:
+1. Build the website
+2. Push the built files to the `gh-pages` branch
+3. GitHub Pages will automatically serve the site at https://codexcommunion.github.io/printpraypeel.com/
+
+### Prerequisites for Deployment
+- Make sure you have push access to the repository
+- The `gh-pages` branch should exist (create it from `main` if it doesn't)
+- Your local git should be authenticated with GitHub
+
+### Alternative SSH Deployment
+If you prefer using SSH:
 
 ```bash
-GIT_USER=<Your GitHub username> yarn deploy
+USE_SSH=true npm run deploy
 ```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
