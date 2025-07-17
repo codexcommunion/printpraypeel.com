@@ -1,5 +1,6 @@
 name: Deploy to GitHub Pages
 
+# Automated deployment workflow for PrintPrayPeel.com
 on:
   push:
     branches:
