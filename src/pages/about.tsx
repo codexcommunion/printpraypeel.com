@@ -107,7 +107,7 @@ export default function About(): ReactNode {
             </div>
 
             <div className="text--center margin-top--xl">
-              <a href="/how-it-works" className="button button--primary button--lg">
+              <a href="/guides/how-to-make-stickers" className="button button--primary button--lg">
                 Get Started 🙏
               </a>
             </div>

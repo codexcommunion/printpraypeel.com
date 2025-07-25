@@ -42,25 +42,6 @@
     - _Requirements: 1.1, 1.2, 1.3, 1.5_
 
   - [x] 2.2 Implement three main feature sections on homepage
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     - Create "Learn to Make a Sticker" section with link to instructional guide page
     - Create "Check Out the Stickers" section with link to sticker library (TODO page)
     - Create "Learn More About Prayer" section with link to prayer resources page
@@ -68,12 +49,20 @@
     - _Requirements: 1.2, 1.3, 1.4, 2.1_
 
   - [ ] 2.3 Create comprehensive instructional "How to Make Stickers" guide
+
+
+
+
+
+
     - Convert basic page into a directory-based structure with multiple sections
     - Add screenshots and images to illustrate each step of the process
     - Include best practices, material recommendations, and detailed step-by-step instructions
     - Create visual aids and examples for each step of the sticker-making process
     - Cover different printing options, paper types, and cutting techniques
     - Add troubleshooting section for common issues
+    - Include links to the sticker collection rather than listing individual stickers
+    - Ensure instructions are general and applicable to all sticker types
     - _Requirements: 1.2, 4.3, 4.4_
 
 - [ ] 3. Sticker Library Implementation

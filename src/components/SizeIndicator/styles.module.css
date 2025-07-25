@@ -1,0 +1,18 @@
+.sizeContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.rulerIcon {
+  color: var(--ifm-color-primary);
+}
+
+.sizeText {
+  /* Use default text styling */
+}
+
+.metricText {
+  font-style: italic;
+}

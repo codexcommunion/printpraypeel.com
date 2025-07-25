@@ -2,6 +2,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import {getDocusaurusTheme} from '@codexcommunion/liturgical-theme';
+import type {Configuration} from 'webpack';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -33,6 +34,10 @@ const config: Config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
+
+
+
+
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
@@ -41,15 +46,45 @@ const config: Config = {
     locales: ['en'],
   },
 
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'guides',
+        path: 'guides',
+        routeBasePath: 'guides',
+        sidebarPath: './sidebarsGuides.ts',
+        editUrl: undefined,
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'stickers',
+        path: 'stickers',
+        routeBasePath: 'stickers',
+        sidebarPath: './sidebarsStickers.ts',
+        editUrl: undefined,
+        exclude: [
+          '**/source/**',
+          '**/*.xcf',
+          '**/*.psd',
+          '**/*.ai',
+          '**/*.sketch',
+        ],
+      },
+    ],
+    // Custom plugin to expose stickers frontmatter data
+    './plugins/stickers-frontmatter-plugin.js',
+    // Plugin to configure webpack to ignore binary design files
+    './plugins/webpack-ignore-plugin.js',
+  ],
+
   presets: [
     [
       'classic',
       {
-        docs: {
-          sidebarPath: './sidebars.ts',
-          // Remove edit URL since this is not a collaborative docs site
-          editUrl: undefined,
-        },
+        docs: false, // Disable the default docs plugin since we're using separate plugins
         blog: {
           showReadingTime: true,
           feedOptions: {
@@ -65,6 +100,7 @@ const config: Config = {
         },
         theme: {
           customCss: './src/css/custom.css',
+          
         },
       } satisfies Preset.Options,
     ],
@@ -81,11 +117,6 @@ const config: Config = {
         {
           to: '/stickers',
           label: 'Stickers',
-          position: 'left',
-        },
-        {
-          to: '/how-it-works',
-          label: 'How It Works',
           position: 'left',
         },
         {
@@ -112,8 +143,8 @@ const config: Config = {
           title: 'Getting Started',
           items: [
             {
-              label: 'How It Works',
-              to: '/how-it-works',
+              label: 'Guides',
+              to: '/guides',
             },
             {
               label: 'Sticker Library',
@@ -159,6 +190,8 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
+
+
 };
 
 export default config;

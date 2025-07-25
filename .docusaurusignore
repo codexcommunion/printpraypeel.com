@@ -1,0 +1,18 @@
+# Source and work-in-progress files
+**/source/
+**/wip/
+**/drafts/
+**/work-in-progress/
+
+# Common design file extensions
+**/*.xcf
+**/*.gimp
+**/*.ai
+**/*.psd
+**/*.sketch
+**/*.fig
+
+# Backup and temporary files
+**/*.bak
+**/*.tmp
+**/*~

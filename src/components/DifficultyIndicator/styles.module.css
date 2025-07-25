@@ -1,0 +1,25 @@
+.difficultyContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.iconsRow {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.filled {
+  color: var(--ifm-color-primary);
+}
+
+.empty {
+  color: var(--ifm-color-emphasis-300);
+}
+
+.difficultyText {
+  text-transform: capitalize;
+}

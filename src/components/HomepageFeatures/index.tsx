@@ -22,7 +22,7 @@ const FeatureList: FeatureItem[] = [
         Discover how to create your own stickers with our step-by-step guide.
       </>
     ),
-    linkTo: '/how-to-make-your-own-stickers',
+    linkTo: '/guides/how-to-make-stickers',
     linkText: 'View Guide',
   },
   {
@@ -42,11 +42,11 @@ const FeatureList: FeatureItem[] = [
     Icon: IconPray,
     description: (
       <>
-        Check out our collection of prayers and learn how to pray, or elevate your prayer life to the next level.
+        Check out our prayer guide and learn how to pray, or elevate your prayer life to the next level.
       </>
     ),
-    linkTo: '/prayers',
-    linkText: 'Discover Prayer',
+    linkTo: '/guides/how-to-pray',
+    linkText: 'View Prayer Guide',
   },
 ];
 
