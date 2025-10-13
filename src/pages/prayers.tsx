@@ -1,6 +1,17 @@
-import type {ReactNode} from 'react';
+import type { ReactNode } from 'react';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
+import PrayerCard from '../components/PrayerCard';
+// Import individual prayer files directly from the npm package
+import gloryBe from '@codexcommunion/prayer-collection/prayers/core/glory-be.json';
+import hailMary from '@codexcommunion/prayer-collection/prayers/core/hail-mary.json';
+import ourFather from '@codexcommunion/prayer-collection/prayers/core/our-father.json';
+import apostlesCreed from '@codexcommunion/prayer-collection/prayers/creeds/apostles-creed.json';
+import angelus from '@codexcommunion/prayer-collection/prayers/marian/angelus.json';
+import hailHolyQueen from '@codexcommunion/prayer-collection/prayers/marian/hail-holy-queen.json';
+import memorare from '@codexcommunion/prayer-collection/prayers/marian/memorare.json';
+import actOfContrition from '@codexcommunion/prayer-collection/prayers/penitential/act-of-contrition.json';
+import stMichaelPrayer from '@codexcommunion/prayer-collection/prayers/saints/st-michael-prayer.json';
 
 export default function Prayers(): ReactNode {
   return (
@@ -12,22 +23,29 @@ export default function Prayers(): ReactNode {
           <div className="col col--8 col--offset-2">
             <Heading as="h1">Catholic Prayers</Heading>
             <p className="margin-bottom--lg">
-              These traditional Catholic prayers are integrated into our sticker designs. 
-              Each prayer is meant to be recited while cutting out the corresponding sticker, 
+              These traditional Catholic prayers are integrated into our sticker designs.
+              Each prayer is meant to be recited while cutting out the corresponding sticker,
               creating a meditative and spiritual crafting experience.
             </p>
 
             <div className="margin-bottom--xl">
               <Heading as="h2">📿 Prayer Collection</Heading>
               <p>
-                Our prayers come from the <code>@codexcommunion/prayer-collection</code> NPM package, 
-                which contains authentic Catholic prayers formatted for easy reading and meditation.
+                Our prayers come from the{' '}
+                <a
+                  href="https://www.npmjs.com/package/@codexcommunion/prayer-collection"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <code>@codexcommunion/prayer-collection</code>
+                </a>{' '}
+                NPM package, which contains authentic Catholic prayers formatted for easy reading and meditation.
               </p>
-              
+
               <div className="alert alert--info margin-bottom--lg">
                 <h4>Prayer Integration</h4>
                 <p>
-                  Each sticker design includes specific prayers that complement the cutting and crafting process. 
+                  Each sticker design includes specific prayers that complement the cutting and crafting process.
                   The prayers are chosen to enhance the spiritual experience while creating something beautiful to share.
                 </p>
               </div>
@@ -35,28 +53,25 @@ export default function Prayers(): ReactNode {
 
             <div className="margin-bottom--xl">
               <Heading as="h2">🙏 Featured Prayers</Heading>
-              <p>Our stickers will include these traditional Catholic prayers:</p>
-              
+              <p>Our stickers include these traditional Catholic prayers from our collection:</p>
+
               <div className="row">
-                <div className="col col--6">
-                  <h3>Essential Prayers</h3>
-                  <ul>
-                    <li>The Sign of the Cross</li>
-                    <li>Our Father (Lord's Prayer)</li>
-                    <li>Hail Mary</li>
-                    <li>Glory Be</li>
-                    <li>Apostles' Creed</li>
-                  </ul>
-                </div>
-                <div className="col col--6">
-                  <h3>Devotional Prayers</h3>
-                  <ul>
-                    <li>Guardian Angel Prayer</li>
-                    <li>Prayer to St. Michael</li>
-                    <li>Memorare</li>
-                    <li>Prayer to St. Joseph</li>
-                    <li>Act of Contrition</li>
-                  </ul>
+                <div className="col col--12">
+                  <div className="row">
+                    {[
+                      gloryBe,
+                      hailMary,
+                      ourFather,
+                      apostlesCreed,
+                      angelus,
+                      hailHolyQueen,
+                      memorare,
+                      actOfContrition,
+                      stMichaelPrayer
+                    ].map((prayer: any) => (
+                      <PrayerCard key={prayer.metadata.id} prayer={prayer} />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
