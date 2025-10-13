@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
+import Link from '@docusaurus/Link';
 import PrayerCard from '../components/PrayerCard';
 // Import individual prayer files directly from the npm package
 import gloryBe from '@codexcommunion/prayer-collection/prayers/core/glory-be.json';
@@ -90,9 +91,9 @@ export default function Prayers(): ReactNode {
             </div>
 
             <div className="text--center margin-top--xl">
-              <a href="/stickers" className="button button--primary button--lg">
+              <Link to="/stickers" className="button button--primary button--lg">
                 Browse Sticker Collection 📄
-              </a>
+              </Link>
             </div>
           </div>
         </div>

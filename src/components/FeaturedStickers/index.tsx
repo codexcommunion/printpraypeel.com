@@ -1,12 +1,9 @@
 import React from 'react';
-import Link from '@docusaurus/Link';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { IconPrinter, IconCalendar } from '@tabler/icons-react';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import { useDocsData } from '@docusaurus/plugin-content-docs/client';
-import DifficultyIndicator from '../DifficultyIndicator';
-import SizeIndicator from '../SizeIndicator';
+import StickerCard from '../StickerCard';
 import styles from './styles.module.css';
 
 // Helper function to get the best available image
@@ -191,103 +188,10 @@ export default function FeaturedStickers(): React.JSX.Element {
             >
                 {featuredStickers.map((sticker) => (
                     <div key={sticker.id} className={styles.carouselSlide}>
-                        <div className={styles.slideContent}>
-                            {/* Header section - full width, centered */}
-                            <div className={styles.slideHeader}>
-                                <h3 className={styles.slideTitle}>{sticker.title}</h3>
-                                <div className={styles.slideDescription}>
-                                    {sticker.description}
-                                </div>
-                            </div>
-
-                            {/* Two column layout */}
-                            <div className={styles.slideColumns}>
-                                <div className={styles.imageSection}>
-                                    <div className={styles.imageContainer}>
-                                        <img
-                                            src={sticker.imagePath}
-                                            alt={sticker.title}
-                                            className={styles.stickerImage}
-                                        />
-                                    </div>
-                                    <Link to={sticker.permalink} className={styles.viewButton}>
-                                        View Sticker & Download
-                                    </Link>
-                                </div>
-                                <div className={styles.slideInfo}>
-
-                                    {sticker.frontMatter?.difficulty && (
-                                        <DifficultyIndicator difficulty={sticker.frontMatter.difficulty as 'beginner' | 'intermediate' | 'advanced'} />
-                                    )}
-
-                                    {sticker.frontMatter?.size && (
-                                        <SizeIndicator size={sticker.frontMatter.size} />
-                                    )}
-
-                                    {sticker.frontMatter?.printLayout && (
-                                        <div className={styles.metadataItem}>
-                                            <IconPrinter
-                                                size={18}
-                                                stroke={1.5}
-                                                className={styles.metadataIcon}
-                                            />
-                                            <span>{sticker.frontMatter.printLayout}</span>
-                                        </div>
-                                    )}
-
-                                    {sticker.frontMatter?.feastDay && (
-                                        <div className={styles.metadataItem}>
-                                            <IconCalendar
-                                                size={18}
-                                                stroke={1.5}
-                                                className={styles.metadataIcon}
-                                            />
-                                            <span>Feast Day: {sticker.frontMatter.feastDay}</span>
-                                        </div>
-                                    )}
-
-                                    {sticker.frontMatter?.bibleVerses && sticker.frontMatter.bibleVerses.length > 0 && (
-                                        <div className={styles.scriptureSection}>
-                                            <div className={styles.scriptureTitle}>
-                                                Related Scripture
-                                            </div>
-                                            <div className={styles.scriptureLinks}>
-                                                {sticker.frontMatter.bibleVerses.map((verse, index) => (
-                                                    <span key={index}>
-                                                        <a
-                                                            href={`https://bible.usccb.org/bible/${verse.toLowerCase().replace(/\s+/g, '')}`}
-                                                            target="_blank"
-                                                            rel="noopener noreferrer"
-                                                        >
-                                                            {verse}
-                                                        </a>
-                                                        {index < sticker.frontMatter.bibleVerses.length - 1 && ', '}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    )}
-
-                                    {sticker.frontMatter?.tags && (
-                                        <div className={styles.tagsSection}>
-                                            <div className={styles.tagsTitle}>
-                                                Tags
-                                            </div>
-                                            <div className={styles.tagLinks}>
-                                                {sticker.frontMatter.tags.slice(0, 3).map((tag, index) => (
-                                                    <Link
-                                                        key={index}
-                                                        to={`/stickers/tags/${tag}`}
-                                                    >
-                                                        {tag.replace('-', ' ')}
-                                                    </Link>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-                        </div>
+                        <StickerCard
+                            sticker={sticker}
+                            layout="carousel"
+                        />
                     </div>
                 ))}
             </Carousel>

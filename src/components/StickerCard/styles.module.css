@@ -1,0 +1,251 @@
+/* Base card styles */
+.stickerCard {
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-card-border-radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Layout variants */
+.carouselView {
+  /* Styles for carousel usage */
+}
+
+.detailView {
+  /* Styles for detail page usage */
+  max-width: none;
+}
+
+/* Header section */
+.cardHeader {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--ifm-heading-color);
+}
+
+.cardDescription {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Content layout */
+.cardContent {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+  .cardContent {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+/* Image section */
+.imageSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imageContainer {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 1rem;
+}
+
+.stickerImage {
+  width: 100%;
+  height: auto;
+  border-radius: var(--ifm-card-border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.viewButton {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--ifm-color-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--ifm-button-border-radius);
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.viewButton:hover {
+  background: var(--ifm-color-primary-dark);
+  color: white;
+  text-decoration: none;
+}
+
+/* Download section */
+.downloadSection {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.downloadSection h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: var(--ifm-heading-color);
+}
+
+.downloadLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.downloadLink {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.downloadLink:hover {
+  color: var(--ifm-color-primary-dark);
+  text-decoration: underline;
+  border-bottom-color: var(--ifm-color-primary-light);
+}
+
+.fileIcon {
+  color: var(--ifm-color-emphasis-600);
+  flex-shrink: 0;
+}
+
+/* Download footer */
+.downloadFooter {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.downloadFooter h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--ifm-heading-color);
+}
+
+.downloadFooter .downloadLinks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.downloadFooter .downloadLink {
+  padding: 0.5rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-card-border-radius);
+  background: var(--ifm-color-emphasis-50);
+  transition: all 0.2s ease;
+}
+
+.downloadFooter .downloadLink:hover {
+  background: var(--ifm-color-emphasis-100);
+  border-color: var(--ifm-color-primary-light);
+  transform: translateY(-1px);
+}
+
+/* Metadata section */
+.metadataSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Removed stickerSpecs styles since we're using icons instead */
+
+.metadataItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.metadataIcon {
+  color: var(--ifm-color-primary);
+  flex-shrink: 0;
+}
+
+/* Scripture section */
+.scriptureSection {
+  padding: 1rem;
+  background: var(--ifm-color-emphasis-50);
+  border-radius: var(--ifm-card-border-radius);
+  border-left: 4px solid var(--ifm-color-primary);
+}
+
+.scriptureTitle {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-heading-color);
+  font-size: 0.9rem;
+}
+
+.scriptureLinks {
+  font-size: 0.85rem;
+}
+
+.scriptureLinks a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.scriptureLinks a:hover {
+  text-decoration: underline;
+}
+
+/* Tags section */
+.tagsSection {
+  padding: 1rem;
+  background: var(--ifm-color-emphasis-50);
+  border-radius: var(--ifm-card-border-radius);
+}
+
+.tagsTitle {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-heading-color);
+  font-size: 0.9rem;
+}
+
+.tagLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tagLinks a {
+  padding: 0.25rem 0.5rem;
+  background: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary-dark);
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.tagLinks a:hover {
+  background: var(--ifm-color-primary-light);
+  text-decoration: none;
+}
