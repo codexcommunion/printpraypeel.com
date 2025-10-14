@@ -23,7 +23,9 @@ const config: Config = {
   url: "https://codexcommunion.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/printpraypeel.com/",
+  // baseUrl: "/printpraypeel.com/",
+  baseUrl: "/",
+
 
   // GitHub pages deployment config.
   organizationName: "codexcommunion", // Usually your GitHub org/user name.
