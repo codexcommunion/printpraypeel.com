@@ -3,7 +3,8 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import Link from '@docusaurus/Link';
 import PrayerCard from '../components/PrayerCard';
-// Import individual prayer files directly from the npm package
+
+// Prayers from the package
 import gloryBe from '@codexcommunion/prayer-collection/prayers/core/glory-be.json';
 import hailMary from '@codexcommunion/prayer-collection/prayers/core/hail-mary.json';
 import ourFather from '@codexcommunion/prayer-collection/prayers/core/our-father.json';
@@ -18,21 +19,32 @@ export default function Prayers(): ReactNode {
   return (
     <Layout
       title="Catholic Prayers"
-      description="Traditional Catholic prayers for meditation and spiritual growth">
+      description="Traditional Catholic prayers to accompany personal devotion and PrintPrayPeel crafting."
+    >
       <div className="container margin-vert--lg">
         <div className="row">
           <div className="col col--8 col--offset-2">
             <Heading as="h1">Catholic Prayers</Heading>
+
             <p className="margin-bottom--lg">
-              These traditional Catholic prayers are integrated into our sticker designs.
-              Each prayer is meant to be recited while cutting out the corresponding sticker,
-              creating a meditative and spiritual crafting experience.
+              When our own words feel small, the Church lends us hers. Below you’ll find time-tested prayers
+              that appear throughout our sticker designs, allowing you to pray while you create.
             </p>
 
+            <div className="alert alert--info margin-bottom--xl">
+              <h4 className="margin-bottom--sm">New to prayer or to PrintPrayPeel?</h4>
+              <p className="margin-bottom--sm">
+                Start with <Link to="/guides/how-to-pray">How to Pray</Link> for a gentle introduction,
+                and visit <Link to="/guides/how-to-make-stickers">How to Make Prayer Stickers</Link> to see
+                how these prayers come to life through crafting.
+              </p>
+            </div>
+
+            {/* Combined collection + developer info */}
             <div className="margin-bottom--xl">
-              <Heading as="h2">📿 Prayer Collection</Heading>
-              <p>
-                Our prayers come from the{' '}
+              <Heading as="h2">📿 Prayer Collection (and Developer Info)</Heading>
+              <p className="margin-bottom--sm">
+                All prayers are sourced from the{' '}
                 <a
                   href="https://www.npmjs.com/package/@codexcommunion/prayer-collection"
                   target="_blank"
@@ -40,21 +52,52 @@ export default function Prayers(): ReactNode {
                 >
                   <code>@codexcommunion/prayer-collection</code>
                 </a>{' '}
-                NPM package, which contains authentic Catholic prayers formatted for easy reading and meditation.
+                package—authentic Catholic texts formatted for clear reading, devotional use, and easy
+                integration into apps or websites.
               </p>
+              <details>
+                <summary style={{ cursor: 'pointer' }}><strong>For developers</strong></summary>
+                <div className="margin-top--sm">
+                  <p className="margin-bottom--sm">
+                    Each prayer is a JSON file with helpful metadata (<em>id</em>, <em>category</em>, <em>source</em>, <em>text</em>).
+                    Install and import directly:
+                  </p>
+                  <pre>
+                    <code>
+{`npm install @codexcommunion/prayer-collection
 
-              <div className="alert alert--info margin-bottom--lg">
-                <h4>Prayer Integration</h4>
-                <p>
-                  Each sticker design includes specific prayers that complement the cutting and crafting process.
-                  The prayers are chosen to enhance the spiritual experience while creating something beautiful to share.
-                </p>
-              </div>
+import hailMary from '@codexcommunion/prayer-collection/prayers/core/hail-mary.json';
+
+console.log(hailMary.text);`}
+                    </code>
+                  </pre>
+                  <p className="margin-bottom--sm">
+                    Contribute or explore related projects on{' '}
+                    <a
+                      href="https://github.com/codexcommunion/prayer-collection"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      GitHub
+                    </a>. See the{' '}
+                    <a
+                      href="https://www.npmjs.com/package/@codexcommunion/prayer-collection"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      NPM package page
+                    </a>{' '}
+                    for versions and documentation.
+                  </p>
+                </div>
+              </details>
             </div>
 
             <div className="margin-bottom--xl">
-              <Heading as="h2">🙏 Featured Prayers</Heading>
-              <p>Our stickers include these traditional Catholic prayers from our collection:</p>
+              <Heading as="h2">🙏 Some Featured Prayers</Heading>
+              <p className="margin-bottom--md">
+                A sampling of frequently used prayers across our sticker themes and devotional projects:
+              </p>
 
               <div className="row">
                 <div className="col col--12">
@@ -68,7 +111,7 @@ export default function Prayers(): ReactNode {
                       hailHolyQueen,
                       memorare,
                       actOfContrition,
-                      stMichaelPrayer
+                      stMichaelPrayer,
                     ].map((prayer: any) => (
                       <PrayerCard key={prayer.metadata.id} prayer={prayer} />
                     ))}
@@ -77,22 +120,12 @@ export default function Prayers(): ReactNode {
               </div>
             </div>
 
-            <div className="margin-bottom--xl">
-              <Heading as="h2">✨ How to Use Prayers with Stickers</Heading>
-              <ol>
-                <li><strong>Choose a sticker design</strong> that resonates with you</li>
-                <li><strong>Print the sticker</strong> on your preferred paper</li>
-                <li><strong>Read the prayer</strong> provided with the sticker</li>
-                <li><strong>Begin cutting</strong> while slowly reciting the prayer</li>
-                <li><strong>Meditate</strong> on the meaning of the words</li>
-                <li><strong>Complete the sticker</strong> with a closing prayer</li>
-                <li><strong>Share</strong> the sticker with someone special</li>
-              </ol>
-            </div>
-
             <div className="text--center margin-top--xl">
-              <Link to="/stickers" className="button button--primary button--lg">
-                Browse Sticker Collection 📄
+              <Link to="/stickers" className="button button--primary button--lg margin-right--sm">
+                Browse Sticker Collection
+              </Link>
+              <Link to="/guides/how-to-pray" className="button button--secondary button--lg">
+                Read How to Pray
               </Link>
             </div>
           </div>
