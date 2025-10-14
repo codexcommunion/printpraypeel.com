@@ -6,7 +6,7 @@
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://codexcommunion.github.io/printpraypeel.com/blog"/>
     <subtitle>PrintPrayPeel.com Blog</subtitle>
-    <icon>https://codexcommunion.github.io/printpraypeel.com/img/favicon.ico</icon>
+    <icon>https://codexcommunion.github.io/printpraypeel.com/img/favicon.svg</icon>
     <entry>
         <title type="html"><![CDATA[Welcome]]></title>
         <id>https://codexcommunion.github.io/printpraypeel.com/blog/welcome</id>

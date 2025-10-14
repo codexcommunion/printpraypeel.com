@@ -1,0 +1,67 @@
+{
+  "D:/projects/codexcommunion/printpraypeel.com/guides/how-to-make-stickers": {
+    "sidebar_position": 1,
+    "title": "How to Make Prayer Stickers",
+    "description": "A step-by-step guide to creating PrintPrayPeel stickers"
+  },
+  "D:/projects/codexcommunion/printpraypeel.com/src/pages/how-to-make-your-own-stickers": {
+    "title": "How to Make Your Own Stickers",
+    "description": "Learn how to create your own Catholic prayer stickers with this step-by-step guide"
+  },
+  "index": {
+    "title": "Sticker Library",
+    "description": "Browse and download Catholic prayer stickers for printing, praying, and sharing"
+  },
+  "mary/our-lady-of-grace": {
+    "title": "Our Lady of Grace with Christ Child",
+    "description": "Mary and Jesus triumphant over the serpent - inspired by the Miraculous Medal tradition",
+    "categories": [
+      "mary",
+      "our-lady-of-grace",
+      "miraculous-medal",
+      "mother-and-child",
+      "triumph-over-evil"
+    ],
+    "liturgicalSeason": "ordinary-time",
+    "feastDay": "November 27",
+    "difficulty": "intermediate",
+    "prayerId": "miraculous-medal-prayer",
+    "bibleVerses": [
+      "Genesis 3:15",
+      "Luke 1:28",
+      "Revelation 12:1"
+    ],
+    "colors": [
+      "blue",
+      "white",
+      "gold"
+    ],
+    "downloadFormats": [
+      {
+        "svg": "./our-lady-of-grace.svg"
+      },
+      {
+        "pdf": "./8count-2.5in-wide_clear_halo.pdf"
+      },
+      {
+        "pdf_colorized": "./8count-2.5in-wide-colorized.pdf"
+      },
+      {
+        "docx": "./2.5in_wide_clear_halo.docx"
+      },
+      {
+        "docx_colorized": "./8count-2.5in-wide-colorized.docx"
+      },
+      {
+        "png": "./clear-bg-colorized-clear-halos.png"
+      },
+      {
+        "png_alt": "./clear-bg-colorized.png"
+      }
+    ],
+    "featured": true,
+    "dateAdded": "2025-01-18",
+    "size": "2.5 inches wide",
+    "printLayout": "8 per sheet"
+  }
+}
