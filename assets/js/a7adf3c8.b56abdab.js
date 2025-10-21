@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkprintpraypeel_com=self.webpackChunkprintpraypeel_com||[]).push([[5220],{4590:e=>{e.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"stickers"}')}}]);
