@@ -181,7 +181,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} CodexCommunion. Made with 🙏 for the Catholic community.`,
+      copyright: `Copyright © ${new Date().getFullYear()} CodexCommunion. Made with ❤️ for the Catholic community.`,
     },
     prism: {
       theme: prismThemes.github,

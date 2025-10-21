@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { useState } from 'react';
+import { getPrayerText } from '@codexcommunion/prayer-collection';
 
 interface PrayerCardProps {
   prayer: {
@@ -10,7 +11,7 @@ interface PrayerCardProps {
     };
     translations: {
       en: {
-        text: string;
+        text?: string;
       };
     };
   };
@@ -23,6 +24,9 @@ export default function PrayerCard({ prayer }: PrayerCardProps): ReactNode {
     setIsExpanded(!isExpanded);
   };
 
+  // Get prayer text using the API for consistency
+  const prayerText = getPrayerText(prayer.metadata.id, 'en') || prayer.translations.en.text || '';
+
   return (
     <div className="col col--12 margin-bottom--md">
       <div className="card">
@@ -33,8 +37,9 @@ export default function PrayerCard({ prayer }: PrayerCardProps): ReactNode {
           </p>
           
           <button
-            className="button button--outline button--sm"
+            className="button button--secondary button--sm"
             onClick={toggleExpanded}
+            style={{ cursor: 'pointer' }}
           >
             {isExpanded ? 'Hide Prayer Text' : 'Show Prayer Text'} {isExpanded ? '▲' : '▼'}
           </button>
@@ -47,7 +52,7 @@ export default function PrayerCard({ prayer }: PrayerCardProps): ReactNode {
                   lineHeight: '1.6',
                   whiteSpace: 'pre-line'
                 }}>
-                  {prayer.translations.en.text}
+                  {prayerText}
                 </div>
               </div>
             </div>

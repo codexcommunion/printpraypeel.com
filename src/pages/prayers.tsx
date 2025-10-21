@@ -4,16 +4,29 @@ import Heading from '@theme/Heading';
 import Link from '@docusaurus/Link';
 import PrayerCard from '../components/PrayerCard';
 
-// Prayers from the package
-import gloryBe from '@codexcommunion/prayer-collection/prayers/core/glory-be.json';
-import hailMary from '@codexcommunion/prayer-collection/prayers/core/hail-mary.json';
-import ourFather from '@codexcommunion/prayer-collection/prayers/core/our-father.json';
-import apostlesCreed from '@codexcommunion/prayer-collection/prayers/creeds/apostles-creed.json';
-import angelus from '@codexcommunion/prayer-collection/prayers/marian/angelus.json';
-import hailHolyQueen from '@codexcommunion/prayer-collection/prayers/marian/hail-holy-queen.json';
-import memorare from '@codexcommunion/prayer-collection/prayers/marian/memorare.json';
-import actOfContrition from '@codexcommunion/prayer-collection/prayers/penitential/act-of-contrition.json';
-import stMichaelPrayer from '@codexcommunion/prayer-collection/prayers/saints/st-michael-prayer.json';
+// Import prayer collection API
+import { 
+  getAllPrayers,
+  getPrimaryCategories,
+  getLabels,
+  getPrayersByLabel
+} from '@codexcommunion/prayer-collection';
+
+// Get collection stats
+const allPrayers = getAllPrayers();
+const prayerCount = allPrayers.length;
+const categories = getPrimaryCategories();
+const labels = getLabels();
+
+// Get core and marian prayers for display
+const corePrayers = getPrayersByLabel('core');
+const marianPrayers = getPrayersByLabel('marian');
+
+// Combine and limit to featured prayers (take first few from each category)
+const featuredPrayers = [
+  ...corePrayers.slice(0, 5),
+  ...marianPrayers.slice(0, 5)
+];
 
 export default function Prayers(): ReactNode {
   return (
@@ -40,9 +53,9 @@ export default function Prayers(): ReactNode {
               </p>
             </div>
 
-            {/* Combined collection + developer info */}
+            {/* Prayer Collection Info */}
             <div className="margin-bottom--xl">
-              <Heading as="h2">📿 Prayer Collection (and Developer Info)</Heading>
+              <Heading as="h2">📿 Prayer Collection</Heading>
               <p className="margin-bottom--sm">
                 All prayers are sourced from the{' '}
                 <a
@@ -53,66 +66,42 @@ export default function Prayers(): ReactNode {
                   <code>@codexcommunion/prayer-collection</code>
                 </a>{' '}
                 package—authentic Catholic texts formatted for clear reading, devotional use, and easy
-                integration into apps or websites.
+                integration into apps or websites. The collection includes{' '}
+                <strong>{prayerCount} prayers</strong> organized across{' '}
+                <strong>{categories.length} categories</strong> with{' '}
+                <strong>{labels.length} labels</strong> for flexible filtering.
               </p>
-              <details>
-                <summary style={{ cursor: 'pointer' }}><strong>For developers</strong></summary>
-                <div className="margin-top--sm">
-                  <p className="margin-bottom--sm">
-                    Each prayer is a JSON file with helpful metadata (<em>id</em>, <em>category</em>, <em>source</em>, <em>text</em>).
-                    Install and import directly:
-                  </p>
-                  <pre>
-                    <code>
-{`npm install @codexcommunion/prayer-collection
-
-import hailMary from '@codexcommunion/prayer-collection/prayers/core/hail-mary.json';
-
-console.log(hailMary.text);`}
-                    </code>
-                  </pre>
-                  <p className="margin-bottom--sm">
-                    Contribute or explore related projects on{' '}
-                    <a
-                      href="https://github.com/codexcommunion/prayer-collection"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      GitHub
-                    </a>. See the{' '}
-                    <a
-                      href="https://www.npmjs.com/package/@codexcommunion/prayer-collection"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      NPM package page
-                    </a>{' '}
-                    for versions and documentation.
-                  </p>
-                </div>
-              </details>
+              <p>
+                Explore the collection on{' '}
+                <a
+                  href="https://github.com/codexcommunion/prayer-collection"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub
+                </a>{' '}
+                or view the{' '}
+                <a
+                  href="https://www.npmjs.com/package/@codexcommunion/prayer-collection"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  NPM package
+                </a>{' '}
+                for more information.
+              </p>
             </div>
 
             <div className="margin-bottom--xl">
-              <Heading as="h2">🙏 Some Featured Prayers</Heading>
+              <Heading as="h2">🙏 Sample Prayers</Heading>
               <p className="margin-bottom--md">
-                A sampling of frequently used prayers across our sticker themes and devotional projects:
+                A few sample prayers used across our sticker themes and devotional projects:
               </p>
 
               <div className="row">
                 <div className="col col--12">
                   <div className="row">
-                    {[
-                      gloryBe,
-                      hailMary,
-                      ourFather,
-                      apostlesCreed,
-                      angelus,
-                      hailHolyQueen,
-                      memorare,
-                      actOfContrition,
-                      stMichaelPrayer,
-                    ].map((prayer: any) => (
+                    {featuredPrayers.map((prayer: any) => (
                       <PrayerCard key={prayer.metadata.id} prayer={prayer} />
                     ))}
                   </div>

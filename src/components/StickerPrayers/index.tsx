@@ -1,30 +1,16 @@
 import type { ReactNode } from 'react';
 import PrayerCard from '../PrayerCard';
-// Import prayers from the collection
-import hailMary from '@codexcommunion/prayer-collection/prayers/core/hail-mary.json';
-import ourFather from '@codexcommunion/prayer-collection/prayers/core/our-father.json';
-import gloryBe from '@codexcommunion/prayer-collection/prayers/core/glory-be.json';
-import angelus from '@codexcommunion/prayer-collection/prayers/marian/angelus.json';
-import hailHolyQueen from '@codexcommunion/prayer-collection/prayers/marian/hail-holy-queen.json';
-import memorare from '@codexcommunion/prayer-collection/prayers/marian/memorare.json';
-import stMichaelPrayer from '@codexcommunion/prayer-collection/prayers/saints/st-michael-prayer.json';
-import actOfContrition from '@codexcommunion/prayer-collection/prayers/penitential/act-of-contrition.json';
+// Import prayers using the new API
+import { getPrayersByLabel, type Label } from '@codexcommunion/prayer-collection';
 
 interface StickerPrayersProps {
-  prayerTypes: ('core' | 'marian' | 'saints' | 'penitential')[];
+  prayerTypes: Label[];
   description?: string;
 }
 
-const prayersByType = {
-  core: [hailMary, ourFather, gloryBe],
-  marian: [hailMary, angelus, hailHolyQueen, memorare],
-  saints: [stMichaelPrayer],
-  penitential: [actOfContrition]
-};
-
 export default function StickerPrayers({ prayerTypes, description }: StickerPrayersProps): ReactNode {
-  // Get unique prayers based on the requested types
-  const selectedPrayers = prayerTypes.flatMap(type => prayersByType[type] || []);
+  // Get prayers dynamically based on requested types using the API
+  const selectedPrayers = prayerTypes.flatMap(type => getPrayersByLabel(type));
   
   // Remove duplicates based on prayer ID
   const uniquePrayers = selectedPrayers.filter((prayer, index, self) => 
