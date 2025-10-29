@@ -128,7 +128,7 @@ export default function FeaturedStickers(): React.JSX.Element {
                 id: doc.id,
                 title: frontMatter?.title || doc.title,
                 description: frontMatter?.description || doc.description,
-                permalink: doc.permalink || `/stickers/${doc.id}`,
+                permalink: doc.permalink || doc.path,
                 imagePath: getStickerImage(doc.id, frontMatter),
                 frontMatter: frontMatter
             };
