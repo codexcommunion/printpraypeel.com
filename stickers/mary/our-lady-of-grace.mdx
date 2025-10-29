@@ -18,8 +18,18 @@ bibleVerses:
 colors: ["blue", "white", "gold"]
 downloadFormats:
   - svg: "./our-lady-of-grace.svg"
-  - pdf: "./8count-2.5in-wide_clear_halo.pdf"
-  - pdf_colorized: "./8count-2.5in-wide-colorized.pdf"
+  - pdf:
+      path: "./8count-2.5in-wide_clear_halo.pdf"
+      printReady: true
+      paperSize: "US Letter (8.5x11)"
+      layout: "8 stickers per sheet"
+      label: "Print Ready - Clear Halo"
+  - pdf_colorized:
+      path: "./8count-2.5in-wide-colorized.pdf"
+      printReady: true
+      paperSize: "US Letter (8.5x11)"
+      layout: "8 stickers per sheet"
+      label: "Print Ready - Colorized"
   - docx: "./2.5in_wide_clear_halo.docx"
   - docx_colorized: "./8count-2.5in-wide-colorized.docx"
   - png: "./clear-bg-colorized-clear-halos.png"

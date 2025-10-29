@@ -20,8 +20,18 @@ bibleVerses:
 colors: ["black", "white", "red"]
 downloadFormats:
   - svg: "./st_michael.svg"
-  - pdf: "./20_count_2x2in.pdf"
-  - docx: "./20_count_2x2in.docx"
+  - pdf:
+      path: "./20_count_2x2in.pdf"
+      printReady: true
+      paperSize: "US Letter (8.5x11)"
+      layout: "20 stickers per sheet"
+      label: "Print Ready PDF"
+  - docx:
+      path: "./20_count_2x2in.docx"
+      printReady: true
+      paperSize: "US Letter (8.5x11)"
+      layout: "20 stickers per sheet"
+      label: "Print Ready Word Doc"
   - png_clear: "./clear-bg.png"
   - png_black_bg: "./black-bg.png"
   - png_white_colorized: "./white-bg-colorized.png"

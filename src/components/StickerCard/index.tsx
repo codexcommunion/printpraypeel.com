@@ -19,6 +19,9 @@ interface StickerCardProps {
     type: 'pdf' | 'svg' | 'docx' | 'png';
     label: string;
     path: string;
+    printReady?: boolean;
+    paperSize?: string;
+    layout?: string;
   }>;
   layout?: 'carousel' | 'detail';
 }
@@ -164,16 +167,68 @@ export default function StickerCard({
       </div>
 
       {/* Downloads section as footer - only show in detail view */}
-      {showDownloads && downloadFormats.length > 0 && isDetailView && (
+      {showDownloads && isDetailView && (
         <div className={styles.downloadFooter}>
-          <h4>Available Files</h4>
-          <div className={styles.downloadLinks}>
-            {downloadFormats.map((format, index) => (
-              <a key={index} href={format.path} download className={styles.downloadLink}>
-                {getFormatIcon(format.type)} {format.label}
-              </a>
-            ))}
-          </div>
+          {/* Print Ready Files Section */}
+          {downloadFormats.some(format => format.printReady) ? (
+            <div className={styles.printReadySection}>
+              <h4 className={styles.printReadyTitle}>
+                <IconPrinter size={20} stroke={1.5} className={styles.printIcon} />
+                Print Ready Files
+              </h4>
+              <div className={styles.printReadyLinks}>
+                {downloadFormats
+                  .filter(format => format.printReady)
+                  .map((format, index) => (
+                    <a key={index} href={format.path} download className={styles.printReadyLink}>
+                      <div className={styles.printReadyInfo}>
+                        <div className={styles.printReadyHeader}>
+                          {getFormatIcon(format.type)} {format.label}
+                        </div>
+                        {format.paperSize && (
+                          <div className={styles.printReadyDetails}>
+                            Paper: {format.paperSize}
+                          </div>
+                        )}
+                        {format.layout && (
+                          <div className={styles.printReadyDetails}>
+                            Layout: {format.layout}
+                          </div>
+                        )}
+                      </div>
+                    </a>
+                  ))}
+              </div>
+            </div>
+          ) : (
+            <div className={styles.printReadySection}>
+              <h4 className={styles.printReadyTitle}>
+                <IconPrinter size={20} stroke={1.5} className={styles.printIcon} />
+                Print Ready Files
+              </h4>
+              <div className={styles.comingSoonMessage}>
+                <div className={styles.comingSoonText}>
+                  Print-ready files coming soon! In the meantime, you can download the files below and prepare them for printing.
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Other Files Section */}
+          {downloadFormats.some(format => !format.printReady) && (
+            <div className={styles.otherFilesSection}>
+              <h4>Other Files</h4>
+              <div className={styles.downloadLinks}>
+                {downloadFormats
+                  .filter(format => !format.printReady)
+                  .map((format, index) => (
+                    <a key={index} href={format.path} download className={styles.downloadLink}>
+                      {getFormatIcon(format.type)} {format.label}
+                    </a>
+                  ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>

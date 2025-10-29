@@ -44,35 +44,62 @@ export default function StickerDisplayFromFrontmatter({
     let type: string;
     let path: string;
     let label: string;
+    let printReady: boolean = false;
+    let paperSize: string | undefined;
+    let layoutInfo: string | undefined;
 
     if (typeof format === 'object') {
-      // Handle formats like { svg: "./file.svg" } or { type: "pdf", path: "./file.pdf", label: "..." }
+      // Handle formats like { svg: "./file.svg" } or enhanced format with printReady info
       if (format.type && format.path && format.label) {
-        // Already in the right format
+        // Already in the right format with explicit properties
         type = format.type;
         path = format.path;
         label = format.label;
+        printReady = format.printReady || false;
+        paperSize = format.paperSize;
+        layoutInfo = format.layout;
       } else {
-        // Handle { svg: "./file.svg" } format
-        const [formatType, formatPath] = Object.entries(format)[0] as [string, string];
+        // Handle { svg: "./file.svg" } or enhanced { pdf: { path: "...", printReady: true, ... } } format
+        const [formatType, formatValue] = Object.entries(format)[0] as [string, any];
 
         // Extract base type for icon (everything before first underscore)
         type = formatType.split('_')[0];
-        path = formatPath;
 
-        // Generate a label based on the full key
-        if (formatType.includes('colorized')) {
-          label = 'Colorized Version';
-        } else if (formatType.includes('clear')) {
-          label = 'Clear Version';
-        } else if (formatType.includes('alt')) {
-          label = 'Alternative Version';
-        } else if (formatType === 'svg') {
-          label = 'Vector Format';
-        } else if (formatType === 'docx') {
-          label = 'Word Document';
+        if (typeof formatValue === 'string') {
+          // Simple format: { svg: "./file.svg" }
+          path = formatValue;
+          
+          // Generate a label based on the full key
+          if (formatType.includes('colorized')) {
+            label = 'Colorized Version';
+          } else if (formatType.includes('clear')) {
+            label = 'Clear Version';
+          } else if (formatType.includes('alt')) {
+            label = 'Alternative Version';
+          } else if (formatType === 'svg') {
+            label = 'Vector Format';
+          } else if (formatType === 'docx') {
+            label = 'Word Document';
+          } else {
+            label = formatType.toUpperCase();
+          }
+        } else if (typeof formatValue === 'object') {
+          // Enhanced format: { pdf: { path: "...", printReady: true, paperSize: "...", layout: "..." } }
+          path = formatValue.path;
+          printReady = formatValue.printReady || false;
+          paperSize = formatValue.paperSize;
+          layoutInfo = formatValue.layout;
+          
+          // Generate label - use provided label or create one
+          if (formatValue.label) {
+            label = formatValue.label;
+          } else if (printReady) {
+            label = `Print Ready ${type.toUpperCase()}`;
+          } else {
+            label = formatType.toUpperCase();
+          }
         } else {
-          label = formatType.toUpperCase();
+          return null; // Skip invalid formats
         }
       }
     } else {
@@ -94,7 +121,10 @@ export default function StickerDisplayFromFrontmatter({
     return {
       type: type as 'pdf' | 'svg' | 'docx' | 'png',
       label,
-      path: resolvedPath
+      path: resolvedPath,
+      printReady,
+      paperSize,
+      layout: layoutInfo
     };
   }).filter(Boolean) || []; // Remove null entries
 
