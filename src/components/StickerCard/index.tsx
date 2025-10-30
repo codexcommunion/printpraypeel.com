@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
-import { IconPrinter, IconCalendar, IconFileTypePdf, IconFileTypeDocx, IconFileTypeSvg, IconPhoto } from '@tabler/icons-react';
+import { IconPrinter, IconCalendar, IconFileTypePdf, IconFileTypeDocx, IconFileTypeSvg, IconPhoto, IconDownload } from '@tabler/icons-react';
 import DifficultyIndicator from '../DifficultyIndicator';
 import SizeIndicator from '../SizeIndicator';
 import styles from './styles.module.css';
@@ -180,7 +180,7 @@ export default function StickerCard({
                 {downloadFormats
                   .filter(format => format.printReady)
                   .map((format, index) => (
-                    <a key={index} href={format.path} download className={styles.printReadyLink}>
+                    <div key={index} className={styles.printReadyCard}>
                       <div className={styles.printReadyInfo}>
                         <div className={styles.printReadyHeader}>
                           {getFormatIcon(format.type)} {format.label}
@@ -196,7 +196,43 @@ export default function StickerCard({
                           </div>
                         )}
                       </div>
-                    </a>
+                      <div className={styles.printReadyActions}>
+                        <button
+                          onClick={() => {
+                            const link = document.createElement('a');
+                            link.href = format.path;
+                            link.download = '';
+                            document.body.appendChild(link);
+                            link.click();
+                            document.body.removeChild(link);
+                          }}
+                          className={styles.actionButton}
+                          title="Download file for later printing"
+                        >
+                          <IconDownload size={18} stroke={1.5} />
+                        </button>
+                        <button
+                          onClick={() => {
+                            // For PDF files, open in new tab and trigger print
+                            if (format.type === 'pdf') {
+                              const printWindow = window.open(format.path, '_blank');
+                              if (printWindow) {
+                                printWindow.onload = () => {
+                                  printWindow.print();
+                                };
+                              }
+                            } else {
+                              // For other file types, just open in new tab
+                              window.open(format.path, '_blank');
+                            }
+                          }}
+                          className={styles.actionButton}
+                          title={format.type === 'pdf' ? "Open print dialog immediately" : "Open file in new tab"}
+                        >
+                          <IconPrinter size={18} stroke={1.5} />
+                        </button>
+                      </div>
+                    </div>
                   ))}
               </div>
             </div>
